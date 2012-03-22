@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ScoutsWebsite" Class="ScoutsDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=JORDY-PC\SQLSERVER2008R2;Initial Catalog=ScoutsWebsite;User ID=Scouts" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ScoutsWebsiteConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CalendarItems" Member="CalendarItems">
+    <Type Name="CalendarItem">
+      <Column Name="CalendarItemID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CalendarItemTitle" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CalendarItemFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CalendarItemUntil" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CalendarItemType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CalendarItemNeeds" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="CalendarItemDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Posts" Member="Posts">
+    <Type Name="Post">
+      <Column Name="PostID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PostSubject" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PostContent" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PostDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PostAttachment" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Leaders" Member="Leaders">
+    <Type Name="Leader">
+      <Column Name="LeaderID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LeaderFirstName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="LeaderLastName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="LeaderEmail" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="LeaderPhone" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LeaderTakType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LeaderTakLeader" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="LeaderPhoto" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+</Database>

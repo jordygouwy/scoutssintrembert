@@ -1,0 +1,16 @@
+﻿@model ScoutsWebsite.Models.CalendarDetailItem
+
+@if (Model != null)
+{
+<table>
+<tr><td colspan="2"><b>@Html.DisplayFor(x => x.CalendarItemTitle)</b></td></tr>
+<tr>
+<td>@Html.Partial("DateDisplay", Model.CalendarItemFrom)@Html.Partial("HourDisplay", Model.CalendarItemFromDisplay)</td>
+<td>@Html.Partial("DateDisplay", Model.CalendarItemUntil)@Html.Partial("HourDisplay", Model.CalendarItemUntilDisplay)</td>
+</tr>
+</table>
+    <br />
+    
+<p>@Html.Raw(Model.CalendarItemDescription)</p>
+
+}

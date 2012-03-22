@@ -1,0 +1,104 @@
+﻿@model ScoutsWebsite.Models.LeaderDetailItem
+@{
+    ViewBag.Title = "AdminLeaderEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="stylized" class="myform">
+
+@Html.ValidationSummary()
+
+<form action="aleaderedit.aspx" enctype="multipart/form-data" method="post" id="form">
+
+    <table>
+    <tr>
+    <td colspan="2"><h1>Nieuwe leider aanmaken</h1>@Html.HiddenFor(x => x.LeaderID)</td>
+    </tr>
+    <tr>
+    <td colspan="2"><p>Vul alle gegevens van de nieuwe leider in</p></td>
+    </tr>
+
+    <tr>
+    <td>
+    <label>Voornaam
+    <span class="small">Vul de voornaam in</span>
+    </label>
+    </td>
+    <td>@Html.EditorFor(x => x.LeaderFirstName)</td>
+    </tr>
+
+    <tr>
+    <td>
+    <label>Naam
+    <span class="small">Vul de naam in</span>
+    </label>
+    </td>
+    <td>@Html.EditorFor(x => x.LeaderLastName)</td>
+    </tr>
+
+
+    <tr>
+    <td>
+    <label>E-mail
+    <span class="small">Vul het e-mail adres in</span>
+    </label>
+    </td>
+    <td>@Html.EditorFor(x => x.LeaderEmail)</td>
+    </tr>
+
+
+    <tr>
+    <td>
+    <label>Telefoon
+    <span class="small">Vul GSM of telefoonnummer in</span>
+    </label>
+    </td>
+    <td>@Html.EditorFor(x => x.LeaderPhone)</td>
+    </tr>
+    
+
+    <tr>
+    <td>
+    <label>Welke tak
+    <span class="small">Kies een tak/groep</span>
+    </label>
+    </td>
+    <td>@Html.DropDownListFor(x => x.Type, ScoutsWebsite.Helpers.Utils.GetTakTypeListItems())</td>
+    </tr>
+
+
+    <tr>
+    <td>
+    <label>Takleider
+    <span class="small">Selecteer of de leider takleider is</span>
+    </label>
+    </td>
+    <td>@Html.DropDownListFor(x => x.LeaderTakLeader, ScoutsWebsite.Helpers.Utils.GetYesNoListItems())</td>
+    </tr>
+
+     <tr>
+    <td>
+    <label>Afbeelding
+    <span class="small">Selecteer afbeelding</span>
+    </label>
+    </td>
+    <td><input type="file" name="File" id="File" accept="image/gif,image/jpeg" /></td>
+    </tr>
+    
+    <tr>
+    <td></td><td>
+    <div class="buttons">
+		<a href="#" onclick="document.forms['form'].submit();" class="button">Opslaan</a>
+	</div></td>
+    </tr>
+
+   </table>
+</form>
+</div>
+
+<style>
+body
+{
+ background-color:#F5F5F5;   
+}
+</style>

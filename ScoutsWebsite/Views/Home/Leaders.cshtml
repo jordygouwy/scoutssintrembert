@@ -1,0 +1,65 @@
+﻿@model List<ScoutsWebsite.Models.LeaderDetailItem>
+@{
+    ViewBag.Title = "Takken";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <a href="@Url.Action("AdminLeaders", "Account")">Beheer leiding</a>
+}
+<link href="@Url.Content("~/Content/News.css")" rel="stylesheet" type="text/css" />
+<div class="leaderitems">
+ @if (Model != null)
+ {
+     ScoutsWebsite.Enums.TakType currenttak = ScoutsWebsite.Enums.TakType.Groep;
+     for (int i = 0; i < Model.Count; i++)
+     {
+         ScoutsWebsite.Models.LeaderDetailItem listitem = Model[i];
+
+         if (currenttak != listitem.TakType)
+         {
+             currenttak = listitem.TakType;
+
+             if (i > 0 && Model.Count > 1)
+             {
+               @:</div>
+             }
+             @:<div class="leadergroup">
+               switch (listitem.TakType)
+               {
+                   case ScoutsWebsite.Enums.TakType.Jins:
+               <div class="leaderitemjin"></div>
+                       break;
+
+                   case ScoutsWebsite.Enums.TakType.Jongverkenners:
+               <div class="leaderitemjvk"></div>
+                       break;
+
+                   case ScoutsWebsite.Enums.TakType.Kapoenen:
+               <div class="leaderitemkap"></div>
+                       break;
+
+                   case ScoutsWebsite.Enums.TakType.Verkenners:
+               <div class="leaderitemvrk"></div>
+                       break;
+
+                   case ScoutsWebsite.Enums.TakType.Welpen:
+               <div class="leaderitemwel"></div>
+                       break;
+
+                   default:
+               <div class="leaderitemgroep"></div>
+                       break;
+               }
+         }
+         @Html.Partial("LeaderItemListItem", listitem);
+
+                                                      if ((i + 1) == Model.Count)
+                                                      {
+                                                      @:</div>
+                                                      }
+
+
+     }
+ }
+</div>

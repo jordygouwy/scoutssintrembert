@@ -1,0 +1,39 @@
+﻿@model ScoutsWebsite.Models.LeaderDetailItem
+@if (Model != null)
+{
+    <div class="leaderitemcontainer">
+       <table>
+       <tr>
+       <td colspan="4" class="leaderitemcontainerheader"> @Html.DisplayFor(x => x.LeaderFirstName) @Html.DisplayFor(x => x.LeaderLastName) @Html.DisplayFor(x => x.CheckTakLeader)</td>
+       </tr>
+       <tr>
+     
+       
+       <td class="leaderitemimage" rowspan="4"><img src="./showimage.aspx?leaderid=@Model.LeaderID" class="leaderitemimage"  alt="" width="100" height="100"/></td>
+      @* <td class="leaderitemlabel">@Html.LabelFor(x => x.LeaderLastName)</td>
+       <td class="leaderitemtext">@Html.DisplayFor(x => x.LeaderFirstName) @Html.DisplayFor(x => x.LeaderLastName)</td>*@
+       @*@if (Model.LeaderTakLeader)
+       {
+       <td rowspan="4" class="leaderitemstar" title="Takleider"></td>
+       }
+       else
+       {
+       <td rowspan="4"></td>   
+       }*@
+       </tr>
+       <tr>
+       <td class="leaderitemlabel">@Html.LabelFor(x => x.LeaderEmail)</td>
+       <td class="leaderitemtext">@Html.DisplayFor(x => x.LeaderEmail)</td>
+       </tr>       
+       <tr>
+       <td class="leaderitemlabel">@Html.LabelFor(x => x.LeaderPhone)</td>
+       <td class="leaderitemtext">@Html.DisplayFor(x => x.LeaderPhone)</td>
+       </tr>
+        <tr>
+       <td class="leaderitemlabel">@Html.LabelFor(x => x.TakType)</td>
+       <td class="leaderitemtext">@Html.DisplayFor(x => x.TakType)</td>
+       </tr>
+       </table>
+    </div>
+   
+}

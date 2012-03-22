@@ -1,0 +1,52 @@
+﻿@model List<ScoutsWebsite.Models.CalendarDetailItem>
+
+@{
+    ViewBag.Title = "adminleaders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kalenderbeheer</h2>
+
+<link href="@Url.Content("~/Content/tablesort.css")" rel='stylesheet' type='text/css' />
+
+<table id="admintable">
+<tr>
+<td colspan="6"><div class="buttons">
+    <a href="@Url.Action("AdmincalendarEdit", "Account")" class="button add">Toevoegen</a>
+</div></td>
+</tr>
+<tr>
+<th class="textcolumn">Titel</th>
+<th class="textcolumn">Van</th>
+<th class="textcolumn">Tot</th>
+<th></th>
+<th></th>
+</tr>
+@if (Model != null)
+{
+    for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+        <td class="textcolumn">@Html.DisplayFor(x => x[i].CalendarItemTitle)</td>
+        <td class="textcolumn">@Html.DisplayFor(x => x[i].CalendarItemFrom)</td>
+        <td class="textcolumn">@Html.DisplayFor(x => x[i].CalendarItemUntil)</td>
+        <td class="buttoncolumn">
+            <div class="buttons">
+		        <a href="@Url.Action("AdmincalendarEdit", "Account", new { id = Model[i].CalendarItemID })" class="button save">Wijzigen</a>
+	        </div>
+        </td>
+        <td class="buttoncolumn">
+            <div class="buttons">
+		        <a href="@Url.Action("AdmincalendarDelete", "Account", new { id = Model[i].CalendarItemID })" class="button delete">Verwijderen</a>
+	        </div>
+        </td>
+    </tr>
+
+    }
+}
+
+<tr>
+
+<th colspan="6">
+</th></tr>
+</table>

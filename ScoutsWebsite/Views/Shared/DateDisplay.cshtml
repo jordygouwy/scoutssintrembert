@@ -1,0 +1,62 @@
+﻿@model DateTime?
+
+@if (Model.HasValue)
+{
+<div class="date">
+ <span class="yeardisplay">@Model.Value.Year</span>
+  <span class="daydisplay"><label>@Model.Value.Day</label></span>
+  <span class="monthdisplay">
+  @switch (Model.Value.Month)
+  {
+      case 1:
+          <label>Jan</label>
+          break;
+
+      case 2:
+          <label>Feb</label>
+          break;
+
+      case 3:
+        <label>Maa</label>
+          break;
+
+      case 4:
+        <label>Apr</label>
+          break;
+
+      case 5:
+        <label>Mei</label>
+          break;
+
+      case 6:
+        <label>Jun</label>
+          break;
+
+      case 7:
+        <label>Jul</label>
+          break;
+
+      case 8:
+        <label>Aug</label>
+          break;
+
+      case 9:
+        <label>Sep</label>
+          break;
+
+      case 10:
+        <label>Okt</label>
+          break;
+
+      case 11:
+        <label>Nov</label>
+          break;
+          
+      case 12:
+        <label>Dec</label>
+          break;
+
+  }
+  </span>
+</div>
+}

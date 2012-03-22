@@ -1,0 +1,52 @@
+﻿@model List<ScoutsWebsite.Models.LeaderDetailItem>
+
+@{
+    ViewBag.Title = "adminleaders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Leidingsbeheer</h2>
+
+<link href="@Url.Content("~/Content/tablesort.css")" rel='stylesheet' type='text/css' />
+
+<table id="admintable">
+<tr>
+<td colspan="6"><div class="buttons">
+    <a href="@Url.Action("AdminLeaderEdit", "Account")" class="button add">Toevoegen</a>
+</div></td>
+</tr>
+<tr>
+<th class="textcolumn">Naam</th>
+<th class="textcolumn">Email</th>
+<th class="textcolumn">Telefoon</th>
+<th></th>
+<th></th>
+</tr>
+@if (Model != null)
+{
+    for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+        <td class="textcolumn">@Html.DisplayFor(x => x[i].LeaderFirstName) @Html.DisplayFor(x => x[i].LeaderLastName)</td>
+        <td class="textcolumn">@Html.DisplayFor(x => x[i].LeaderEmail)</td>
+        <td class="textcolumn">@Html.DisplayFor(x => x[i].LeaderPhone)</td>
+        <td class="buttoncolumn">
+            <div class="buttons">
+		        <a href="@Url.Action("AdminLeaderEdit", "Account", new { id = Model[i].LeaderID })" class="button save">Wijzigen</a>
+	        </div>
+        </td>
+        <td class="buttoncolumn">
+            <div class="buttons">
+		        <a href="@Url.Action("AdminLeaderDelete", "Account", new { id = Model[i].LeaderID })" class="button delete">Verwijderen</a>
+	        </div>
+        </td>
+    </tr>
+
+    }
+}
+
+<tr>
+
+<th colspan="6">
+</th></tr>
+</table>

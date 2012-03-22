@@ -1,0 +1,25 @@
+﻿@model ScoutsWebsite.Models.DateTimeDisplay
+
+@if (Model != null)
+{
+<div class="time">
+<div class="timetitle">@Model.Title</div>
+@if (Model.Time.Hour > 9)
+{
+  <span class="hourdisplay">@Model.Time.Hour</span>
+}
+else
+{
+ <span class="hourdisplay">@("0" + Model.Time.Hour)</span>
+}
+  <span class="splitdisplay">:</span>
+  @if (Model.Time.Minute > 9)
+  {
+  <span class="minutedisplay">@Model.Time.Minute</span>
+  }
+  else
+  {
+   <span class="minutedisplay">@("0" + Model.Time.Minute)</span>
+  }
+</div>
+}

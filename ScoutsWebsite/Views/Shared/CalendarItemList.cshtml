@@ -1,0 +1,10 @@
+﻿@model List<ScoutsWebsite.Models.CalendarShortItem>
+<div class="calendaritemlist">
+    @if (Model != null)
+    {
+        foreach (ScoutsWebsite.Models.CalendarShortItem item in Model)
+        {
+            @Html.Partial("CalendarItemShort", item);
+        }
+    }
+</div>

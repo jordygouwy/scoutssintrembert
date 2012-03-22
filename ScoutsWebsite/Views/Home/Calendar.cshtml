@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Calendar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <a href="@Url.Action("AdminCalendar", "Account")">Beheer kalender</a>
+}
+
+<link rel='stylesheet' type='text/css' href='Scripts/fullcalendar/fullcalendar.css' />
+<link rel='stylesheet' type='text/css' href='Scripts/fullcalendar/theme.css' />
+<link rel='stylesheet' type='text/css' href='Scripts/fullcalendar/fullcalendar.print.css' media='print' />
+<script type='text/javascript' src='Scripts/jquery-1.5.2.min.js'></script>
+<script type='text/javascript' src='Scripts/jquery-ui-1.8.11.custom.min.js'></script>
+<script type='text/javascript' src='Scripts/fullcalendar/fullcalendar.min.js'></script>
+<script type='text/javascript'>
+    //    http: //sintrembert.apphb.com/
+//    http: //localhost/ScoutsWebsite
+    $(document).ready(function () {
+        //<div id='calendar'></div>
+        var calendardiv = document.createElement('div');
+        calendardiv.setAttribute('id', 'calendar');
+
+        var footerdiv = document.getElementById('contentdiv');
+        footerdiv.innerHtml = '';
+        footerdiv.appendChild(calendardiv);
+
+
+        //var applicationurl = 'http: //sintrembert.apphb.com/';
+        var applicationurl = 'http://localhost/ScoutsWebsite/';
+
+      
+        if (calendardiv != null) {
+            $(calendardiv).fullCalendar({
+                height: 500,
+                theme: false,
+                editable: false,
+                events: function (start, end, callback) {
+                    var startdt = start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate();
+                    var enddt = end.getFullYear() + '-' + (end.getMonth() + 1) + '-' + end.getDate();
+                    // dohideorshowfooter(1);
+                    $.ajax({
+
+                        type: 'POST',
+                        url: applicationurl + 'Home/GetEvents',
+                        dataType: 'xml',
+                        data: {
+                            startdate: startdt,
+                            enddate: enddt
+                        },
+
+                        success: function (doc) {
+                            var events = [];
+                            $(doc).find('event').each(function () {
+                                events.push({
+                                    id: $(this).attr('id'),
+                                    title: $(this).attr('title'),
+                                    start: $(this).attr('start'), // will be parsed
+                                    end: $(this).attr('end'),
+                                    className: $(this).attr('classtype'),
+                                    url: applicationurl + '/getevent.aspx?id=' + $(this).attr('id')
+                                    //                                allDay: $(this).attr('allDay')
+                                });
+                            });
+                            //dohideorshowfooter(0);
+                            callback(events);
+                        }
+                    });
+                }
+            });
+        }
+    });
+ 
+
+</script>
+<style type='text/css'>
+
+	/*body {
+		margin-top: 40px;
+		text-align: center;
+		font-size: 14px;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		}
+
+   #calendar {
+		width: 900px;
+		margin: 0 auto;
+		}*/
+
+</style>
+
+
+
+

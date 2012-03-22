@@ -1,0 +1,34 @@
+﻿@model ScoutsWebsite.Models.PostDetailItem
+@if (Model != null)
+{
+    <div class="newsitemcontainer">
+    
+      <div class="newsitemtitle">@Model.PostSubject  
+       @* @if (Model.NewsItemHasLink)
+        {
+            <div class="newsitemdownload">
+                <u>download</u>
+            </div>
+        }*@
+      </div>
+
+        <div class="newsitemdate">
+        @Html.Partial("DateDisplay", Model.PostDate ?? DateTime.Now)
+    </div>
+       <div class="newsitemcontent">
+        @Html.Raw(Model.PostContent)
+        </div>
+    </div>
+   
+    @*
+<div class="newsitemtitle">@Model.Title</div>    
+<div class="newsitemheader"></div>
+<div class="newsitem">@Html.Raw(Model.Content.Replace("\r\n", "<br />"))</div>
+    if (Model.HasDownload)
+    {
+    <div class="newsitemdownload">download</div>
+    }*@
+ @*   <script type="text/javascript">
+        $('.yeardisplay').rotate(-90);
+     </script>*@
+}

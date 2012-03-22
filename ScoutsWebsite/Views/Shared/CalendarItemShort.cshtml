@@ -1,0 +1,10 @@
+﻿@model ScoutsWebsite.Models.CalendarShortItem
+@if (Model != null)
+{
+    <a href="@Url.Action("Event", "Home", new {id = Model.ID })">
+        <div class="calendaritemshort">
+            <div class="calendaritemcolor @ScoutsWebsite.Helpers.Utils.GetClassFromTakType(Model.TakType)"></div>
+            <div class="calendaritemcontent">@Model.Title</div>
+        </div>
+    </a>
+}

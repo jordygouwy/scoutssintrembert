@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ScoutsData">
+  <DataContextMoniker Name="/ScoutsDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5e64aee5-0835-49ee-894e-b0d08371edc9" absoluteBounds="0.875, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ScoutsDataDataContext/CalendarItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="52729355-601b-48b6-b5bb-a4406ae86c85" absoluteBounds="0.89000000000000012, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4394b629-48cb-432b-a270-c3fb739baccb" absoluteBounds="0.875, 2.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ScoutsDataDataContext/Post" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c340418-800f-410a-ac02-df8e7160b30c" absoluteBounds="0.88999999999999968, 3.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e37f1546-bec2-4db2-9632-994b1286b68f" absoluteBounds="4.125, 2, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/ScoutsDataDataContext/Leader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aaf05042-0c25-47dc-a9c7-cb403bd643b7" absoluteBounds="4.14, 2.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

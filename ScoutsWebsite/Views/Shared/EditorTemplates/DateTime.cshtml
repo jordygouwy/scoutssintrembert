@@ -1,0 +1,39 @@
+﻿@model Nullable<System.DateTime>
+           
+           @{
+string name = ViewData.TemplateInfo.HtmlFieldPrefix;
+string id = name.Replace( ".", "_" );
+}
+
+@if ( Model.HasValue ) {
+   @Html.TextBox( "" , String.Format( "{0:dd/MM/yyyy HH:mm}" , Model.Value ) , new  { @class = "text-box", onchange="datetimechanged()" } )
+}
+else
+{
+   @Html.TextBox("", "", new { @class = "text-box", onchange = "datetimechanged()"})
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#@id").datepicker({
+            closeText: 'Sluiten',
+            prevText: '←',
+            nextText: '→',
+            currentText: 'Vandaag',
+            monthNames: ['januari', 'februari', 'maart', 'april', 'mei', 'juni',
+		'juli', 'augustus', 'september', 'oktober', 'november', 'december'],
+            monthNamesShort: ['jan', 'feb', 'maa', 'apr', 'mei', 'jun',
+		'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
+            dayNames: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
+            dayNamesShort: ['zon', 'maa', 'din', 'woe', 'don', 'vri', 'zat'],
+            dayNamesMin: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'],
+            weekHeader: 'Wk',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        });
+    });
+</script>

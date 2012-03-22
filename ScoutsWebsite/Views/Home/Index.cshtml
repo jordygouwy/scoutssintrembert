@@ -1,0 +1,21 @@
+﻿@model List<ScoutsWebsite.Models.PostDetailItem>
+@{
+    ViewBag.Title = "Home Page";
+}
+<link href="@Url.Content("~/Content/News.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/jQueryRotateCompressed.2.1.js")" type="text/javascript"></script>
+  
+<div class="newsitems">
+@if (User.Identity.IsAuthenticated)
+{
+    <a href="@Url.Action("AdminPosts", "Account")">Beheer nieuwsitems</a>
+     <a href="@Url.Action("LogOff", "Account")">UitLoggen</a>
+}
+ @if (Model != null)
+ {
+     foreach (ScoutsWebsite.Models.PostDetailItem listitem in Model)
+     {
+        @Html.Partial("NewsItemListItem", listitem);
+     }
+ }
+</div>

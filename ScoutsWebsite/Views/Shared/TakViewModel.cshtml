@@ -1,0 +1,19 @@
+﻿@model ScoutsWebsite.Models.TakModel
+@{
+    Layout = null;
+}
+
+<div id="takcontent">
+<table>
+<tr>
+<td rowspan="2"><div class='@Model.ClassName' /></td>
+<td>@Html.DisplayFor(x => x.Title);</td>
+</tr>
+<tr>
+<td>@Html.DisplayFor(x => x.FullDescription);</td>
+</tr>
+</table>
+
+
+</div>
+

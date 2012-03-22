@@ -1,0 +1,48 @@
+﻿@model List<ScoutsWebsite.Models.PostDetailItem>
+
+@{
+    ViewBag.Title = "adminleaders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nieuwsbeheer</h2>
+
+<link href="@Url.Content("~/Content/tablesort.css")" rel='stylesheet' type='text/css' />
+
+<table id="admintable">
+<tr>
+<td colspan="6"><div class="buttons">
+    <a href="@Url.Action("AdminPostEdit", "Account")" class="button add">Toevoegen</a>
+</div></td>
+</tr>
+<tr>
+<th class="textcolumn">Bericht</th>
+</tr>
+@if (Model != null)
+{
+    for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+        <td class="textcolumn">@Html.DisplayFor(x => x[i].PostSubject)</td>
+      
+
+        <td class="buttoncolumn">
+            <div class="buttons">
+		        <a href="@Url.Action("AdminPostEdit", "Account", new { id = Model[i].PostId })" class="button save">Wijzigen</a>
+	        </div>
+        </td>
+        <td class="buttoncolumn">
+            <div class="buttons">
+		        <a href="@Url.Action("AdminPostDelete", "Account", new { id = Model[i].PostId })" class="button delete">Verwijderen</a>
+	        </div>
+        </td>
+    </tr>
+
+    }
+}
+
+<tr>
+
+<th colspan="6">
+</th></tr>
+</table>
